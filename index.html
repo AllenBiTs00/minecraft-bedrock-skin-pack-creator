@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Create Minecraft Bedrock skin packs directly in your browser.">
+  <title>Bedrock Skin Pack Creator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">MINECRAFT BEDROCK</p>
+        <h1>Skin Pack Creator</h1>
+        <p class="subtitle">Upload your skins, give them in-game names, and download a ready-to-import <code>.mcpack</code>.</p>
+      </div>
+      <div class="privacy-badge">Runs in your browser</div>
+    </header>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div>
+          <h2>1. Pack details</h2>
+          <p>The pack name is shown in Minecraft. It does not rename your skin files.</p>
+        </div>
+      </div>
+      <label class="field-label" for="packName">Skin pack name</label>
+      <input id="packName" class="text-input" type="text" maxlength="80" placeholder="My Skin Pack" autocomplete="off">
+    </section>
+
+    <section class="panel">
+      <div class="section-heading">
+        <div>
+          <h2>2. Add skins</h2>
+          <p>PNG skins must be 64×64 or 128×128 pixels.</p>
+        </div>
+        <label class="upload-button">
+          <input id="skinInput" type="file" accept="image/png,.png" multiple>
+          + Add skins
+        </label>
+      </div>
+
+      <div id="dropZone" class="drop-zone" tabindex="0">
+        <div class="drop-icon">＋</div>
+        <strong>Drop PNG skins here</strong>
+        <span>or use the Add skins button</span>
+      </div>
+
+      <div id="skinList" class="skin-list"></div>
+      <div id="emptyState" class="empty-state">No skins added yet.</div>
+    </section>
+
+    <section class="panel summary-panel">
+      <div>
+        <h2>3. Create the pack</h2>
+        <p id="summaryText">Add at least one valid skin to continue.</p>
+      </div>
+      <button id="createButton" class="primary-button" type="button" disabled>Create .mcpack</button>
+    </section>
+
+    <div id="status" class="status" role="status" aria-live="polite"></div>
+
+    <footer>
+      <span>Client-side only. Your skin images are not uploaded to a server.</span>
+      <a href="https://github.com/AllenBiTs00/minecraft-bedrock-skin-pack-creator" target="_blank" rel="noopener">View source</a>
+    </footer>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
